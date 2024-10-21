@@ -10,9 +10,73 @@ category = ['Lidé', 'Zvířata', 'Příroda', 'Společnost', 'Udržitelnost']
 # firm_select_category = st.multiselect(
 #     "Select category for firm", category)
 # 2
-subcategory = ['sub1', 'sub2', 'sub3', 'sub4',
-               'sub5', 'sub6', 'sub7', 'sub8', 'sub9',
-               'sub10', 'sub11', 'sub12', 'sub13', 'sub14', 'sub15']
+
+sub_category_dict = {
+    'Lidé': [
+        'Děti, mládež a rodiny',
+        'Senioři',
+        'Hospicová a paliativní péče',
+        'Humanitární pomoc',
+        'Lidé s postižením',
+        'Lidé bez domova',
+        'Lidská práva',
+        'Legislativní a právní pomoc',
+        'Zdraví'
+    ],
+    'Zvířata': [
+        'Ochrana zvířat',
+        'Boj s lovem divoké zvířaty',
+        'Práva zvířat a dobré životní podmínky',
+        'Výcvik zvířat a speciální služby',
+        'Ohrožené druhy',
+        'Zoologické zahrady a akvária',
+        'Útulky',
+        'Rezervace pro ryby, divokou zvěř a ptáky'
+    ],
+    'Příroda': [
+        'Klimatická změna',
+        'Okyselení oceánu',
+        'Chemické znečištění',
+        'Zatížení dusíkem a fosforem',
+        'Voda',
+        'Degradace půdy',
+        'Ztráta biodiverzity',
+        'Znečištění ovzduší',
+        'Úbytek ozónové vrstvy',
+        'Potraviny/zero waste'
+    ],
+    'Společnost': [
+        'Vzdělávání, věda a výzkum',
+        'Inovace a spolupráce',
+        'Mír a spravedlnost',
+        'Politický hlas',
+        'Sociální spravedlnost a znevýhodněné skupiny',
+        'Rovnost žen a mužů',
+        'Příjem a práce',
+        'Komunitní a regionální rozvoj',
+        'Osvěta a poskytování informací',
+        'Kultura, umění a historie / Sport a volný čas'
+    ],
+    'Udržitelnost': [
+        'Snížení/vymýcení chudoby',
+        'Nulový hlad',
+        'Dobré zdraví a životní podmínky',
+        'Kvalitní vzdělávání',
+        'Rovnosti žen a mužů',
+        'Čistá voda a hygiena',
+        'Cenově dostupná a čistá energie',
+        'Slušná práce a hospodářský růst',
+        'Průmysl, inovace a infrastruktura',
+        'Snížení nerovnosti',
+        'Udržitelná města a komunity',
+        'Odpovědná spotřeba a výroba',
+        'Klimatická akce',
+        'Život pod vodou',
+        'Život Na Zemi',
+        'Mír, spravedlnost a silné instituce',
+        'Partnerství pro cíle'
+    ]
+}
 
 # 3
 fields_of_influence = ['global', 'czechia', 'region']
@@ -40,13 +104,10 @@ barriers = ['Žádná', 'Nemáme čas/Není to priorita', 'Omezené zdroje', 'Ne
 reason_for_impact = ['Je to součastí našich hodnot', 'Zapojení zaměstnanců', 'Zlepšení brandu', 'Plnění ESG legislativy', 'Konkurenční výhoda',
                      'Zvýšit loajalitu zákazníků', 'Pozitivní odkaz naší společnosti', 'Zvýšení atraktivnosti u ESG investorů', 'Chceme zlepšit své vlastní okolí']
 
-# Select a random number between 1 and 3
-num_items_org1 = random.randint(1, 2)
-num_items_fir1 = random.randint(1, 2)
 
 # Generate a new list with the randomly chosen number of items
-org1_category = random.sample(category, num_items_org1)
-fir1_category = random.sample(category, num_items_fir1)
+org1_category = random.sample(category, random.randint(1, 2))
+fir1_category = random.sample(category, random.randint(1, 2))
 
 org1 = {'category': org1_category}
 fir1 = {'category': fir1_category}
@@ -57,8 +118,6 @@ matcher = Matcher()
 org_data = {
     # pick one or two category
     'category': random.sample(category, random.randint(1, 2)),
-    # pick one to ten random subcategory
-    'sub-category': random.sample(subcategory, random.randint(1, 10)),
     # pick on randomly
     'field-of-influence': fields_of_influence[random.randint(1, len(fields_of_influence))-1],
     # pick on randomly
@@ -78,8 +137,6 @@ org_data = {
 firm_data = {
     # pick one or two category
     'category': random.sample(category, random.randint(1, 2)),
-    # pick one to ten random subcategory
-    'sub-category': random.sample(subcategory, random.randint(1, 10)),
     # pick on randomly
     'field-of-influence': fields_of_influence[(random.randint(1, len(fields_of_influence)))-1],
     # pick on randomly
@@ -95,6 +152,26 @@ firm_data = {
     # pick two to five random reasons for impact
     'reason-for-impact': random.sample(reason_for_impact, random.randint(2, 5)),
 }
+# Function to select random values
+
+
+# Function to select random values and return a list
+def select_random_values(keys, sub_category_dict):
+    selected_values = []
+    for key in keys:
+        if key in sub_category_dict:
+            selected_values.extend(random.sample(sub_category_dict[key], min(
+                # Add up to 5 random values from each key
+                10, len(sub_category_dict[key]))))
+    return selected_values
+
+
+print(org_data)
+# # pick one to ten random subcategory
+org_data['sub-category'] = select_random_values(
+    keys=org_data['category'], sub_category_dict=sub_category_dict)
+firm_data['sub-category'] = select_random_values(
+    keys=firm_data['category'], sub_category_dict=sub_category_dict)
 
 
 matcher = Matcher()
