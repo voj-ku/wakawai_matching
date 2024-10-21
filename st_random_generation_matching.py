@@ -255,6 +255,18 @@ st.header(f'''
           round(overall_score*100, 4)}%]
           ''')
 
+if st.checkbox("Jak pracovat s touto stránkou?"):
+    st.info('''Toto prostředí slouží k testování matchingu. 
+            Na této stránce se náhodně vygeneruje firma a neziskovka, poté jsou _namatchovány_.
+            ''', icon="ℹ️")
+
+    st.info('''Nahoře je vidět celkové výsledné skóre. Pod __Match Results__ je detail tohoto matche.
+            Data jsou seřazeny podle __Weighed Score__, tedy skóre dané otázky vynásobené důležitostí. Důležitosti (vzaté z Google Sheets > Matching Matrix) jsou na spodu stránky.
+            ''', icon="ℹ️")
+
+    st.info('''Kliknutím na `Generate New Firm & NGO` se náhodně vygeneruje nová firma a neziskovka a obnoví se skóre a matching.
+            ''', icon="ℹ️")
+
 st.button("Generate New Firm & NGO")
 
 st.subheader('Match Results')
@@ -270,8 +282,3 @@ st.dataframe(
 
 st.subheader('Importance of Categories')
 st.write(percentages)
-
-# if st.checkbox('Show total importance scores'):
-#     st.write(percentages)
-#     color = st.color_picker("Pick A Color", "#00f900")
-#     st.write("The current color is", color)
