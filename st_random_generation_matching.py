@@ -98,17 +98,7 @@ firm_data = {
 
 
 matcher = Matcher()
-
 overall_score = matcher.compute_match_score(org_data, firm_data)
-
-print(matcher.category_score)
-
-# Params
-color = 'green' if overall_score > 0.7 else 'orange' if overall_score > 0.5 else 'red'
-percentages = {k: str(round(v * 100))+'%' for k, v in matcher.nimps.items()}
-
-# Streamlit App
-st.set_page_config(layout="wide")
 
 df = pd.DataFrame(
     columns=['Weighed_Score',  'Sample Firm', 'Score', 'Sample NGO'],
@@ -177,16 +167,20 @@ df.loc[:, 'Weighed_Score'] = df.loc[:, 'Weighed_Score']*100
 
 df = df.sort_values(by='Weighed_Score', ascending=False)
 
+# Streamlit App
+st.set_page_config(layout="wide")
+
+color = 'green' if overall_score > 0.7 else 'orange' if overall_score > 0.5 else 'red'
+percentages = {k: str(round(v * 100, 2))+'%' for k, v in matcher.nimps.items()}
+
 st.header(f'''
           Score for this match: :{color}[{
           round(overall_score*100, 4)}%]
           ''')
 
-if st.checkbox('Show total importance scores'):
-    st.write(percentages)
-    color = st.color_picker("Pick A Color", "#00f900")
-    st.write("The current color is", color)
+st.button("Generate New Firm & NGO")
 
+st.subheader('Match Results')
 
 st.dataframe(
     df,
@@ -196,3 +190,11 @@ st.dataframe(
         Weighed_Score=st.column_config.NumberColumn(
             'Weighed_Score', format='%.0f %%'),
     ))
+
+st.subheader('Importance of Categories')
+st.write(percentages)
+
+# if st.checkbox('Show total importance scores'):
+#     st.write(percentages)
+#     color = st.color_picker("Pick A Color", "#00f900")
+#     st.write("The current color is", color)
