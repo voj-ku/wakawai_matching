@@ -18,18 +18,21 @@ This is a Streamlit application that demonstrates a simple matching algorithm fo
 
 ## Files:
 
-- `st_random_generation_matching.py`: The main Streamlit application file.
+- `st_random_generation_matching.py`: v1 of the Streamlit application.
+- `user_input_ui.py`: v2 of the Streamlit application file.
 - `compute_score.py`: Contains the `Matcher` class with the matching algorithm logic.
+- `randomly_generate.py`: NGO/Firm random generation functions.
 
 ## How to Run:
 
 1. Make sure you have Streamlit installed: `pip install streamlit`
 2. Navigate to the project directory in your terminal.
-3. Run the app: `streamlit run st_random_generation_matching.py`
+3. Run the app: `streamlit run user_input_ui.py`
 
 ## Future Improvements:
 
-- **User Input:** Allow users to input their own data for NGOs and firms instead of relying on random generation.
-- **Database Integration:** Connect the app to a database of real NGO and firm data for more realistic matching.
-- **Advanced Matching Algorithms:** Explore and implement more sophisticated matching algorithms for improved accuracy.
-- **Recommendation System:** Develop a recommendation system that suggests potential NGO-firm partnerships based on their match scores.
+✅ **User Input:** Allow users to input their own data for NGOs and firms instead of relying on random generation.
+🛠️ **Match User Input:** Run the matching and display results same way as in `st_random_generation_matching.py`.
+📋 **Database Integration:** Connect the app to a database of real NGO and firm data for more realistic matching.
+📋 **Advanced Matching Algorithms:** Explore and implement more sophisticated matching algorithms for improved accuracy.
+📋 **Recommendation System:** Develop a recommendation system that suggests potential NGO-firm partnerships based on their match scores.

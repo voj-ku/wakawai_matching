@@ -68,6 +68,7 @@ class Matcher:
     def __init__(self):
         self.nimps = {
             k: v / sum(self.importances.values()) for k, v in self.importances.items()}
+        print('self.nimps', self.nimps)
         pass
 
     def _compute_overlap_score(self, org_data: list, firm_data: list, score_dict: dict) -> float:
@@ -100,8 +101,11 @@ class Matcher:
         Returns:
             float: The computed score.
         """
-
-        return self._compute_overlap_score(org['category'], firm['category'], self.category_scores)
+        try:
+            return self._compute_overlap_score(org['category'], firm['category'], self.category_scores)
+        except KeyError as e:
+            print(f"Missing key: {e}")
+            return 0  # Or handle the error as you see fit
 
     # 2 - sub-category
     def subcategory_score(self, org: dict, firm: dict) -> float:
@@ -115,8 +119,11 @@ class Matcher:
         Returns:
             float: The computed score.
         """
-
-        return self._compute_overlap_score(org['sub-category'], firm['sub-category'], self.subcategory_scores)
+        try:
+            return self._compute_overlap_score(org['sub-category'], firm['sub-category'], self.subcategory_scores)
+        except KeyError as e:
+            print(f"Missing key: {e}")
+            return 0  # Or handle the error as you see fit
 
     # 3 - field of influence
     def field_of_influence_score(self, org: dict, firm: dict) -> float:
@@ -130,19 +137,22 @@ class Matcher:
         Returns:
             float: The computed score.
         """
+        try:
+            if firm['field-of-influence'] == org['field-of-influence']:
+                return 1
 
-        if firm['field-of-influence'] == org['field-of-influence']:
-            return 1
+            elif sorted([firm['field-of-influence'], org['field-of-influence']]) in [
+                ['czechia', 'global'],
+                ['czechia', 'regional'],
+                ['global', 'regional']
+            ]:
+                return 0.3
 
-        elif sorted([firm['field-of-influence'], org['field-of-influence']]) in [
-            ['czechia', 'global'],
-            ['czechia', 'regional'],
-            ['global', 'regional']
-        ]:
-            return 0.3
-
-        else:
-            return 0
+            else:
+                return 0
+        except KeyError as e:
+            print(f"Missing key: {e}")
+            return 0  # Or handle the error as you see fit
 
     # 4 - collaboration intensity
     def collaboration_intensity_score(self, org: dict, firm: dict) -> float:
@@ -156,12 +166,15 @@ class Matcher:
         Returns:
             float: The computed score.
         """
-
-        # assume it's either one-time or multiple
-        if org['collab-intensity'] == firm['collab-intensity']:
-            return 1
-        else:
-            return 0.5
+        try:
+            # assume it's either one-time or multiple
+            if org['collab-intensity'] == firm['collab-intensity']:
+                return 1
+            else:
+                return 0.5
+        except KeyError as e:
+            print(f"Missing key: {e}")
+            return 0  # Or handle the error as you see fit
 
     # 5 - employee involvement
     def employee_involvement_score(self, org: dict, firm: dict) -> float:
@@ -175,29 +188,51 @@ class Matcher:
         Returns:
             float: The computed score. 1 if both prefer involvement, 0.8 if only the organization prefers it, 0.3 if only the firm prefers it.
         """
+        try:
+            if org['employee-involvement'] == firm['employee-involvement']:
+                return 1
+            elif org['employee-involvement'] != 'yes' and firm['employee-involvement'] == 'no':
+                return 0.8
+            elif org['employee-involvement'] == 'no' and firm['employee-involvement'] == 'yes':
+                return 0.3
+            else:
+                return 0
 
-        if org['employee-involvement'] == firm['employee-involvement']:
-            return 1
-        elif org['employee-involvement'] == 'yes' and firm['employee-involvement'] == 'no':
-            return 0.8
-        elif org['employee-involvement'] == 'no' and firm['employee-involvement'] == 'yes':
-            return 0.3
+        except KeyError as e:
+            print(f"Missing key: {e}")
+            return 0  # Or handle the error as you see fit
 
     # 6 - form of help
     def form_of_help_score(self, org: dict, firm: dict) -> float:
-        return self._compute_overlap_score(org_data=org['form-of-help'], firm_data=firm['form-of-help'], score_dict=self.form_of_help_scores)
+        try:
+            return self._compute_overlap_score(org_data=org['form-of-help'], firm_data=firm['form-of-help'], score_dict=self.form_of_help_scores)
+        except KeyError as e:
+            print(f"Missing key: {e}")
+            return 0  # Or handle the error as you see fit
 
     # 7 - expertises
     def expertise_score(self, org: dict, firm: dict) -> float:
-        return self._compute_overlap_score(org_data=org['expertises'], firm_data=firm['expertises'], score_dict=self.expertises_scores)
+        try:
+            return self._compute_overlap_score(org_data=org['expertises'], firm_data=firm['expertises'], score_dict=self.expertises_scores)
+        except KeyError as e:
+            print(f"Missing key: {e}")
+            return 0  # Or handle the error as you see fit
 
     # 8 - barriers to help
     def barriers_score(self, org: dict, firm: dict) -> float:
-        return self._compute_overlap_score(org_data=org['barriers'], firm_data=firm['barriers'], score_dict=self.barrier_scores)
+        try:
+            return self._compute_overlap_score(org_data=org['barriers'], firm_data=firm['barriers'], score_dict=self.barrier_scores)
+        except KeyError as e:
+            print(f"Missing key: {e}")
+            return 0  # Or handle the error as you see fit
 
     # 9 - why have positive impact
     def impact_reasons_score(self, org: dict, firm: dict) -> float:
-        return self._compute_overlap_score(org_data=org['reason-for-impact'], firm_data=firm['reason-for-impact'], score_dict=self.reasons_for_impact_scores)
+        try:
+            return self._compute_overlap_score(org_data=org['reason-for-impact'], firm_data=firm['reason-for-impact'], score_dict=self.reasons_for_impact_scores)
+        except KeyError as e:
+            print(f"Missing key: {e}")
+            return 0  # Or handle the error as you see fit
 
     def compute_match_score(self, org: dict, firm: dict) -> float:
         """
@@ -223,6 +258,8 @@ class Matcher:
             'reason-for-impact': self.impact_reasons_score(org, firm),
         }
 
+        print('self.unweighed_scores', self.unweighed_scores)
+
         self.weighed_scores = {
             'category': self.unweighed_scores['category'] * self.nimps['category'],
             'sub-category': self.unweighed_scores['sub-category'] * self.nimps['sub-category'],
@@ -236,4 +273,5 @@ class Matcher:
         }
         print(self.weighed_scores)
         overall_score = sum(self.weighed_scores.values())
+
         return overall_score

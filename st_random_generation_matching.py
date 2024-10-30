@@ -1,3 +1,4 @@
+import json
 from compute_score import Matcher
 import random
 import pandas as pd
@@ -79,22 +80,22 @@ sub_category_dict = {
 }
 
 # 3
-fields_of_influence = ['global', 'czechia', 'region']
+fields_of_influence = ['Svět', 'ČR', 'Region']
 regions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
 # 4
-collab_intensities = ['one-time', 'multiple']
+collab_intensities = ['Aktivní spolupráce', 'Jednorázová pomoc']
 
 # 5
-employee_involvement = ['yes', 'no']
+employee_involvement = ['Zapojení Zaměstnanců', 'Bez zapojení zaměstanců']
 
 # 6 form of help
-forms_of_help = ['monetary', 'physical', 'volunteering',
-                 'expert-knowledge', 'shared-project']
+forms_of_help = ['Finance', 'Hmotná pomoc', 'Dobrovolnictví',
+                 'Expertní dobrovolnictví', 'Společný projekt']
 
 # 7 expertises
-expertises = ['marketing', 'hr', 'it', 'law', 'sales',
-              'labour', 'other1', 'other2', 'other3', 'other4', 'other5']
+expertises = ['Marketing', 'IT', 'HR', 'Právo', 'Sales',
+              'Projektový Management', 'Výzkum', 'Management', 'Podnikání', 'Účetnictví', 'Jiné']
 
 # 8 barriers
 barriers = ['Žádná', 'Nemáme čas/Není to priorita', 'Omezené zdroje', 'Nedostatek znalostí a zkušeností', 'Složitá legislativa',
@@ -166,12 +167,19 @@ def select_random_values(keys, sub_category_dict):
     return selected_values
 
 
-print(org_data)
 # # pick one to ten random subcategory
 org_data['sub-category'] = select_random_values(
     keys=org_data['category'], sub_category_dict=sub_category_dict)
 firm_data['sub-category'] = select_random_values(
     keys=firm_data['category'], sub_category_dict=sub_category_dict)
+
+
+with open('org_data.json', 'w', encoding='utf-8') as f:
+    json.dump(org_data, f, indent=4, ensure_ascii=False)
+
+
+with open('firm_data.json', 'w', encoding='utf-8') as f:
+    json.dump(firm_data, f, indent=4, ensure_ascii=False)
 
 
 matcher = Matcher()
