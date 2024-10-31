@@ -116,7 +116,7 @@ def select_random_values(keys, sub_category_dict):
                 10, len(sub_category_dict[key]))))
     return selected_values
 
-# Org data generation
+# Convert dictionary to dataframe to display in streamlit app
 
 
 def dict_to_dataframe(data):
@@ -134,7 +134,7 @@ def dict_to_dataframe(data):
     return df.drop('Key', axis=1)
 
 
-@st.cache_data
+# NGO data generation
 def generate_org_data():
     org_data = {
         # pick one or two category
@@ -167,7 +167,6 @@ def generate_org_data():
 # Firm data generation
 
 
-@st.cache_data
 def generate_firm_data():
     firm_data = {
         # pick one or two category

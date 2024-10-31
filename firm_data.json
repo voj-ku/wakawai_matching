@@ -1,51 +1,36 @@
 {
     "category": [
-        "Udržitelnost",
-        "Lidé"
+        "Příroda"
     ],
     "field-of-influence": "Region",
-    "collab-intensity": "Jednorázová pomoc",
+    "collab-intensity": "Aktivní spolupráce",
     "employee-involvement": "Bez zapojení zaměstanců",
     "form-of-help": [
-        "Expertní dobrovolnictví",
-        "Společný projekt",
-        "Dobrovolnictví",
-        "Hmotná pomoc"
+        "Finance"
     ],
     "expertises": [
-        "IT",
-        "Sales",
-        "Výzkum"
+        "Účetnictví"
     ],
     "barriers": [
-        "Majitelé v tom nevidí smysl"
+        "Nedůvěra a obavy"
     ],
     "reason-for-impact": [
-        "Zvýšení atraktivnosti u ESG investorů",
-        "Konkurenční výhoda",
         "Zlepšení brandu",
-        "Chceme zlepšit své vlastní okolí",
-        "Pozitivní odkaz naší společnosti"
+        "Je to součastí našich hodnot",
+        "Zvýšit loajalitu zákazníků",
+        "Konkurenční výhoda",
+        "Zapojení zaměstnanců"
     ],
     "sub-category": [
-        "Slušná práce a hospodářský růst",
-        "Partnerství pro cíle",
-        "Snížení/vymýcení chudoby",
-        "Život Na Zemi",
-        "Dobré zdraví a životní podmínky",
-        "Cenově dostupná a čistá energie",
-        "Klimatická akce",
-        "Nulový hlad",
-        "Odpovědná spotřeba a výroba",
-        "Udržitelná města a komunity",
-        "Lidé s postižením",
-        "Legislativní a právní pomoc",
-        "Zdraví",
-        "Lidé bez domova",
-        "Děti, mládež a rodiny",
-        "Senioři",
-        "Hospicová a paliativní péče",
-        "Humanitární pomoc",
-        "Lidská práva"
+        "Voda",
+        "Okyselení oceánu",
+        "Chemické znečištění",
+        "Znečištění ovzduší",
+        "Klimatická změna",
+        "Ztráta biodiverzity",
+        "Zatížení dusíkem a fosforem",
+        "Degradace půdy",
+        "Potraviny/zero waste",
+        "Úbytek ozónové vrstvy"
     ]
 }

@@ -1,51 +1,45 @@
 {
     "category": [
-        "Udržitelnost",
-        "Zvířata"
+        "Příroda",
+        "Lidé"
     ],
-    "field-of-influence": "ČR",
-    "collab-intensity": "Jednorázová pomoc",
-    "employee-involvement": "Bez zapojení zaměstanců",
+    "field-of-influence": "Svět",
+    "collab-intensity": "Aktivní spolupráce",
+    "employee-involvement": "Zapojení Zaměstnanců",
     "form-of-help": [
-        "Dobrovolnictví",
         "Společný projekt",
-        "Expertní dobrovolnictví",
-        "Finance"
+        "Hmotná pomoc"
     ],
     "expertises": [
-        "Sales",
-        "Výzkum"
+        "IT"
     ],
     "barriers": [
-        "Rozdílné cíle a hodnoty",
-        "Omezené zdroje",
-        "Nemáme čas/Není to priorita"
+        "Žádná",
+        "Nedostatek znalostí a zkušeností"
     ],
     "reason-for-impact": [
-        "Konkurenční výhoda",
-        "Zvýšení atraktivnosti u ESG investorů",
-        "Plnění ESG legislativy",
-        "Pozitivní odkaz naší společnosti",
-        "Chceme zlepšit své vlastní okolí"
+        "Chceme zlepšit své vlastní okolí",
+        "Je to součastí našich hodnot"
     ],
     "sub-category": [
-        "Život pod vodou",
-        "Mír, spravedlnost a silné instituce",
-        "Život Na Zemi",
-        "Cenově dostupná a čistá energie",
-        "Slušná práce a hospodářský růst",
-        "Snížení nerovnosti",
-        "Klimatická akce",
-        "Kvalitní vzdělávání",
-        "Průmysl, inovace a infrastruktura",
-        "Udržitelná města a komunity",
-        "Rezervace pro ryby, divokou zvěř a ptáky",
-        "Boj s lovem divoké zvířaty",
-        "Ohrožené druhy",
-        "Výcvik zvířat a speciální služby",
-        "Zoologické zahrady a akvária",
-        "Práva zvířat a dobré životní podmínky",
-        "Útulky",
-        "Ochrana zvířat"
+        "Ztráta biodiverzity",
+        "Voda",
+        "Úbytek ozónové vrstvy",
+        "Potraviny/zero waste",
+        "Degradace půdy",
+        "Klimatická změna",
+        "Zatížení dusíkem a fosforem",
+        "Okyselení oceánu",
+        "Chemické znečištění",
+        "Znečištění ovzduší",
+        "Hospicová a paliativní péče",
+        "Senioři",
+        "Zdraví",
+        "Humanitární pomoc",
+        "Lidská práva",
+        "Lidé s postižením",
+        "Legislativní a právní pomoc",
+        "Lidé bez domova",
+        "Děti, mládež a rodiny"
     ]
 }
