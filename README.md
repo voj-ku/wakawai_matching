@@ -33,7 +33,6 @@ This is a Streamlit application that demonstrates a simple matching algorithm fo
 
 - ✅ **User Input:** Allow users to input their own data for NGOs and firms instead of relying on random generation.
 - ✅ **Match User Input:** Run the matching and display results for both randomly generated and form-inputted data.
-
 - 📋 **Database Integration:** Connect the app to a database of real NGO and firm data for more realistic matching.
 - 📋 **Advanced Matching Algorithms:** Explore and implement more sophisticated matching algorithms for improved accuracy.
 - 📋 **Recommendation System:** Develop a recommendation system that suggests potential NGO-firm partnerships based on their match scores.

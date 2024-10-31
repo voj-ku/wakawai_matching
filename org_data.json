@@ -1,45 +1,41 @@
 {
     "category": [
-        "Příroda",
-        "Lidé"
+        "Udržitelnost"
     ],
     "field-of-influence": "Svět",
     "collab-intensity": "Aktivní spolupráce",
-    "employee-involvement": "Zapojení Zaměstnanců",
+    "employee-involvement": "Bez zapojení zaměstanců",
     "form-of-help": [
-        "Společný projekt",
-        "Hmotná pomoc"
+        "Hmotná pomoc",
+        "Expertní dobrovolnictví",
+        "Finance",
+        "Dobrovolnictví",
+        "Společný projekt"
     ],
     "expertises": [
-        "IT"
+        "Právo",
+        "Výzkum"
     ],
     "barriers": [
-        "Žádná",
-        "Nedostatek znalostí a zkušeností"
+        "Omezené zdroje",
+        "Složitá legislativa",
+        "Komunikační bariéry"
     ],
     "reason-for-impact": [
         "Chceme zlepšit své vlastní okolí",
-        "Je to součastí našich hodnot"
+        "Zlepšení brandu",
+        "Plnění ESG legislativy"
     ],
     "sub-category": [
-        "Ztráta biodiverzity",
-        "Voda",
-        "Úbytek ozónové vrstvy",
-        "Potraviny/zero waste",
-        "Degradace půdy",
-        "Klimatická změna",
-        "Zatížení dusíkem a fosforem",
-        "Okyselení oceánu",
-        "Chemické znečištění",
-        "Znečištění ovzduší",
-        "Hospicová a paliativní péče",
-        "Senioři",
-        "Zdraví",
-        "Humanitární pomoc",
-        "Lidská práva",
-        "Lidé s postižením",
-        "Legislativní a právní pomoc",
-        "Lidé bez domova",
-        "Děti, mládež a rodiny"
+        "Kvalitní vzdělávání",
+        "Snížení nerovnosti",
+        "Rovnosti žen a mužů",
+        "Život Na Zemi",
+        "Dobré zdraví a životní podmínky",
+        "Nulový hlad",
+        "Cenově dostupná a čistá energie",
+        "Čistá voda a hygiena",
+        "Klimatická akce",
+        "Odpovědná spotřeba a výroba"
     ]
 }

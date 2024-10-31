@@ -105,7 +105,7 @@ barriers = ['Žádná', 'Nemáme čas/Není to priorita', 'Omezené zdroje', 'Ne
 reason_for_impact = ['Je to součastí našich hodnot', 'Zapojení zaměstnanců', 'Zlepšení brandu', 'Plnění ESG legislativy', 'Konkurenční výhoda',
                      'Zvýšit loajalitu zákazníků', 'Pozitivní odkaz naší společnosti', 'Zvýšení atraktivnosti u ESG investorů', 'Chceme zlepšit své vlastní okolí']
 
-create_own = st.toggle('Vygenerovat vlastní NGO / Firmu')
+create_own = st.toggle('Vyplnit vlastní NGO / Firmu')
 
 
 # Initialize ngo_variable
@@ -129,11 +129,12 @@ if create_own:
         with st.form(key='ngo_form'):
             # Category
             ngo_category = st.multiselect(
-                'Select Category (Max 2)', category, help='Select up to 2 categories.')
+                'Kategorie (max 2)', category, help='Vyber až dvě kategorie.')
 
             # Validate category selection
-            if len(ngo_category) > 2:
-                st.error('You can select a maximum of 2 categories.')
+            if len(ngo_category) < 1 or len(ngo_category) > 2:
+                st.error(
+                    'Vyber 1 nebo 2 kategorie.')
 
             # Sub-category
             if ngo_category:
@@ -141,45 +142,58 @@ if create_own:
                 for cat in ngo_category:
                     ngo_sub_category_options.extend(sub_category_dict[cat])
                 ngo_sub_category = st.multiselect(
-                    'Select Sub-Category', ngo_sub_category_options)
+                    'Vyber podkategorie', ngo_sub_category_options)
             else:
                 ngo_sub_category = []
-                st.info('Please select at least one category to see sub-categories.')
+                st.info(
+                    '⚠️ Vyber aspoň jednu kategorii a ulož data kliknutím na "uložit NGO data níže. Až pak budeš moct vybrat podkategorie.')
 
             # Field of Influence
             ngo_field_of_influence = st.selectbox(
-                'Field of Influence', fields_of_influence)
+                'V jaké lokalitě působí a má dopad', fields_of_influence)
 
             # Collaboration Intensity
             ngo_collab_intensity = st.selectbox(
-                'Collaboration Intensity', collab_intensities)
+                'Intenzita spolupráce', collab_intensities)
 
             # Employee Involvement
             ngo_employee_involvement = st.selectbox(
-                'Employee Involvement', employee_involvement)
+                'Zapojení zaměstnanců', employee_involvement)
 
             # Form of Help
-            ngo_form_of_help = st.multiselect('Form of Help', forms_of_help)
+            ngo_form_of_help = st.multiselect(
+                'Forma pomoci (vyber 2-5)', forms_of_help)
+            if len(ngo_form_of_help) < 2 or len(ngo_form_of_help) > 5:
+                st.error(
+                    'Vyber 2 and 5 form pomoci.')
 
             # Expertises
-            ngo_expertises = st.multiselect('Expertises', expertises)
+            ngo_expertises = st.multiselect(
+                'Expertýza (vyber 2-5)', expertises)
+            if len(ngo_expertises) < 2 or len(ngo_expertises) > 5:
+                st.error(
+                    'Vyber 2 and 5 oblastí ve které potřebuje NGO expertýzu.')
 
             # Barriers
-            ngo_barriers = st.multiselect('Barriers', barriers)
+            ngo_barriers = st.multiselect('Bariéry (vyber 2-5)', barriers)
+            if len(ngo_barriers) < 2 or len(ngo_barriers) > 5:
+                st.error(
+                    'Vyber 2 and 5 bariér.')
 
             # Reason for Impact
             ngo_reason_for_impact = st.multiselect(
-                'Reasons for Impact (Select 2-5)', reason_for_impact)
+                'Pozitivní impakt (vyber 2-5)', reason_for_impact)
             if len(ngo_reason_for_impact) < 2 or len(ngo_reason_for_impact) > 5:
-                st.error('Please select between 2 and 5 reasons for impact.')
+                st.error(
+                    'Vyber 2 and 5 důvodů proč chceš mít s NGO pozitivní impact.')
 
             # Submit Button
-            ngo_submit_button = st.form_submit_button(label='Submit NGO Data')
+            ngo_submit_button = st.form_submit_button(label='Uložit NGO Data')
 
             if ngo_submit_button:
                 # Validate inputs
                 if len(ngo_category) > 2 or len(ngo_reason_for_impact) < 2 or len(ngo_reason_for_impact) > 5:
-                    st.error('Please correct the errors above before submitting.')
+                    st.error('Prosím vyplň všechny povinné pole.')
                 else:
                     # Process the NGO data
                     ngo_data = {
@@ -197,7 +211,7 @@ if create_own:
                     st.session_state['ngo_data'] = ngo_data
                     st.session_state['ngo_status'] = 1
 
-                    st.success('NGO Data Submitted Successfully!')
+                    st.success('NGO data vyplněna!')
 
     # Firm Input Form
     with tab2:
@@ -206,11 +220,12 @@ if create_own:
         with st.form(key='firm_form'):
             # Category
             firm_category = st.multiselect(
-                'Select Category (Max 2)', category, help='Select up to 2 categories.')
+                'Kategorie (max 2)', category, help='Vyber až dvě kategorie.')
 
             # Validate category selection
-            if len(firm_category) > 2:
-                st.error('You can select a maximum of 2 categories.')
+            if len(firm_category) < 2 or len(firm_category) > 5:
+                st.error(
+                    'Vyber 1 nebo 2 kategorie.')
 
             # Sub-category
             if firm_category:
@@ -218,46 +233,59 @@ if create_own:
                 for cat in firm_category:
                     firm_sub_category_options.extend(sub_category_dict[cat])
                 firm_sub_category = st.multiselect(
-                    'Select Sub-Category', firm_sub_category_options)
+                    'Vyber podkategorie', firm_sub_category_options)
             else:
                 firm_sub_category = []
-                st.info('Please select at least one category to see sub-categories.')
-
+                st.info(
+                    '⚠️ Vyber aspoň jednu kategorii a ulož data kliknutím na "uložit NGO data níže. Až pak budeš moct vybrat podkategorie.')
             # Field of Influence
             firm_field_of_influence = st.selectbox(
-                'Field of Influence', fields_of_influence)
+                'V jaké lokalitě působí a má dopad', fields_of_influence)
 
             # Collaboration Intensity
             firm_collab_intensity = st.selectbox(
-                'Collaboration Intensity', collab_intensities)
+                'Intenzita spolupráce', collab_intensities)
 
             # Employee Involvement
             firm_employee_involvement = st.selectbox(
-                'Employee Involvement', employee_involvement)
+                'Zapojení zaměstnanců', employee_involvement)
 
             # Form of Help
-            firm_form_of_help = st.multiselect('Form of Help', forms_of_help)
+            firm_form_of_help = st.multiselect(
+                'Forma pomoci (vyber 2-5)', forms_of_help)
+            if len(firm_form_of_help) < 2 or len(firm_form_of_help) > 5:
+                st.error(
+                    'Vyber 2 and 5 form pomoci.')
 
             # Expertises
-            firm_expertises = st.multiselect('Expertises', expertises)
+            firm_expertises = st.multiselect(
+                'Expertýza (vyber 2-5)', expertises)
+            if len(firm_expertises) < 2 or len(firm_expertises) > 5:
+                st.error(
+                    'Vyber 2 and 5 oblastí ve které dokážeš nabídnout expertýzu.')
 
             # Barriers
-            firm_barriers = st.multiselect('Barriers', barriers)
+            firm_barriers = st.multiselect(
+                'Bariéry (vyber 2-5)', barriers)
+            if len(firm_barriers) < 2 or len(firm_barriers) > 5:
+                st.error(
+                    'Vyber 2 and 5 bariér.')
 
             # Reason for Impact
             firm_reason_for_impact = st.multiselect(
-                'Reasons for Impact (Select 2-5)', reason_for_impact)
+                'Pozitivní impakt (vyber 2-5)', reason_for_impact)
             if len(firm_reason_for_impact) < 2 or len(firm_reason_for_impact) > 5:
-                st.error('Please select between 2 and 5 reasons for impact.')
+                st.error(
+                    'Vyber 2 and 5 důvodů proč chceš mít s firmou pozitivní impact.')
 
             # Submit Button
             firm_submit_button = st.form_submit_button(
-                label='Submit Firm Data')
+                label='Uložit Firemní Data')
 
             if firm_submit_button:
                 # Validate inputs
                 if len(firm_category) > 2 or len(firm_reason_for_impact) < 2 or len(firm_reason_for_impact) > 5:
-                    st.error('Please correct the errors above before submitting.')
+                    st.error('Prosím vyplň všechny povinné pole.')
                 else:
                     # Process the Firm data
                     firm_data = {
@@ -275,8 +303,7 @@ if create_own:
                     st.session_state['firm_data'] = firm_data
                     st.session_state['firm_status'] = 1
 
-                    st.success('Firm Data Submitted Successfully!')
-
+                    st.success('Firemní data vyplněna!')
 
 # Two columns for displaying NGO and Firm data
 col1, col2 = st.columns(2)
@@ -299,8 +326,7 @@ with col1:
                           index=ngo_df_data['Key'], columns=['Odpovědi'])
     st.dataframe(ngo_df, use_container_width=True)
 
-
-# Display Firm data in the second column
+    # Display Firm data in the second column
 with col2:
     st.write("### Firm Data")
 
@@ -318,7 +344,7 @@ with col2:
 
     st.dataframe(firm_df, use_container_width=True)
 
-st.header('Matching')
+    st.header('Matching')
 
 if st.button('Vypočítat Match'):
     matcher = Matcher()
@@ -400,9 +426,9 @@ if st.button('Vypočítat Match'):
                    v in matcher.nimps.items()}
 
     st.header(f'''
-            Výsledné Match Skóre: :{color}[{
+     Výsledné Match Skóre: :{color}[{
         round(overall_score*100, 4)}%]
-            ''')
+     ''')
 
     st.subheader('Match Results')
 

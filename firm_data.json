@@ -1,36 +1,45 @@
 {
     "category": [
-        "Příroda"
+        "Lidé",
+        "Zvířata"
     ],
-    "field-of-influence": "Region",
-    "collab-intensity": "Aktivní spolupráce",
-    "employee-involvement": "Bez zapojení zaměstanců",
+    "field-of-influence": "Svět",
+    "collab-intensity": "Jednorázová pomoc",
+    "employee-involvement": "Zapojení Zaměstnanců",
     "form-of-help": [
-        "Finance"
+        "Společný projekt",
+        "Dobrovolnictví"
     ],
     "expertises": [
-        "Účetnictví"
+        "Právo",
+        "Marketing",
+        "HR"
     ],
     "barriers": [
-        "Nedůvěra a obavy"
+        "Rozdílné cíle a hodnoty"
     ],
     "reason-for-impact": [
-        "Zlepšení brandu",
-        "Je to součastí našich hodnot",
+        "Plnění ESG legislativy",
         "Zvýšit loajalitu zákazníků",
-        "Konkurenční výhoda",
-        "Zapojení zaměstnanců"
+        "Chceme zlepšit své vlastní okolí"
     ],
     "sub-category": [
-        "Voda",
-        "Okyselení oceánu",
-        "Chemické znečištění",
-        "Znečištění ovzduší",
-        "Klimatická změna",
-        "Ztráta biodiverzity",
-        "Zatížení dusíkem a fosforem",
-        "Degradace půdy",
-        "Potraviny/zero waste",
-        "Úbytek ozónové vrstvy"
+        "Humanitární pomoc",
+        "Lidé bez domova",
+        "Děti, mládež a rodiny",
+        "Hospicová a paliativní péče",
+        "Legislativní a právní pomoc",
+        "Lidé s postižením",
+        "Lidská práva",
+        "Senioři",
+        "Zdraví",
+        "Výcvik zvířat a speciální služby",
+        "Útulky",
+        "Práva zvířat a dobré životní podmínky",
+        "Ochrana zvířat",
+        "Zoologické zahrady a akvária",
+        "Boj s lovem divoké zvířaty",
+        "Ohrožené druhy",
+        "Rezervace pro ryby, divokou zvěř a ptáky"
     ]
 }
