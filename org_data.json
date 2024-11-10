@@ -1,41 +1,48 @@
 {
     "category": [
-        "Udržitelnost"
+        "Udržitelnost",
+        "Společnost"
     ],
     "field-of-influence": "Svět",
-    "collab-intensity": "Aktivní spolupráce",
-    "employee-involvement": "Bez zapojení zaměstanců",
+    "collab-intensity": "Jednorázová pomoc",
+    "employee-involvement": "Zapojení Zaměstnanců",
     "form-of-help": [
-        "Hmotná pomoc",
-        "Expertní dobrovolnictví",
-        "Finance",
         "Dobrovolnictví",
-        "Společný projekt"
+        "Společný projekt",
+        "Finance",
+        "Hmotná pomoc",
+        "Expertní dobrovolnictví"
     ],
     "expertises": [
-        "Právo",
-        "Výzkum"
+        "Krizové řízení",
+        "Grafika a design",
+        "Péče o zvířata",
+        "Projektový management",
+        "Datová analýza",
+        "Účetnicví a daně",
+        "Manuální práce",
+        "Zdravotnictví",
+        "Fotografické služby",
+        "Sociální sítě & influenceři"
     ],
     "barriers": [
-        "Omezené zdroje",
-        "Složitá legislativa",
-        "Komunikační bariéry"
+        "Nedostatek znalostí a zkušeností"
     ],
     "reason-for-impact": [
-        "Chceme zlepšit své vlastní okolí",
-        "Zlepšení brandu",
-        "Plnění ESG legislativy"
+        "Máme možnost zapojit jejich zaměstnance",
+        "Firma musí být silně hodnotově ukotvená",
+        "Pomůžeme v ESG oblastech"
     ],
     "sub-category": [
-        "Kvalitní vzdělávání",
-        "Snížení nerovnosti",
-        "Rovnosti žen a mužů",
-        "Život Na Zemi",
-        "Dobré zdraví a životní podmínky",
+        "Život pod vodou",
+        "Průmysl, inovace a infrastruktura",
         "Nulový hlad",
-        "Cenově dostupná a čistá energie",
-        "Čistá voda a hygiena",
-        "Klimatická akce",
-        "Odpovědná spotřeba a výroba"
+        "Rovnosti žen a mužů",
+        "Mír, spravedlnost a silné instituce",
+        "Mír a spravedlnost",
+        "Politický hlas",
+        "Rovnost žen a mužů",
+        "Kultura, umění a historie / Sport a volný čas",
+        "Inovace a spolupráce"
     ]
 }

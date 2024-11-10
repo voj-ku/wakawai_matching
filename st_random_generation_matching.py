@@ -162,8 +162,7 @@ def select_random_values(keys, sub_category_dict):
     for key in keys:
         if key in sub_category_dict:
             selected_values.extend(random.sample(sub_category_dict[key], min(
-                # Add up to 5 random values from each key
-                10, len(sub_category_dict[key]))))
+                15, len(sub_category_dict[key]))))
     return selected_values
 
 

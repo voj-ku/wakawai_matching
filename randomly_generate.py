@@ -78,8 +78,7 @@ sub_category_dict = {
 }
 
 # 3
-fields_of_influence = ['Svět', 'ČR', 'Region']
-regions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+fields_of_influence = ['Svět', 'ČR']
 
 # 4
 collab_intensities = ['Aktivní spolupráce', 'Jednorázová pomoc']
@@ -92,28 +91,57 @@ forms_of_help = ['Finance', 'Hmotná pomoc', 'Dobrovolnictví',
                  'Expertní dobrovolnictví', 'Společný projekt']
 
 # 7 expertises
-expertises = ['Marketing', 'IT', 'HR', 'Právo', 'Sales',
-              'Projektový Management', 'Výzkum', 'Management', 'Podnikání', 'Účetnictví', 'Jiné']
+expertises = ['Marketingová a PR strategie',
+              'Copywriting',
+              'Grafika a design',
+              'Sociální sítě & influenceři',
+              'Fotografické služby',
+              'Tvorba videí',
+              'IT a tvorba webů',
+              'Správa e-shopu',
+              'Kyberbezpečnost',
+              'AI nástroje',
+              'Datová analýza',
+              'Eventy',
+              'Překladatelství',
+              'Právní služby',
+              'Fundraising a obchod',
+              'Projektový management',
+              'Vedení týmu',
+              'Finanční plánování',
+              'Účetnicví a daně',
+              'Logistika',
+              'Krizové řízení',
+              'Psychologie',
+              'Zdravotnictví',
+              'Sociální péče',
+              'Péče o zvířata',
+              'Stavební práce',
+              'Manuální práce']
 
 # 8 barriers
 barriers = ['Žádná', 'Nemáme čas/Není to priorita', 'Omezené zdroje', 'Nedostatek znalostí a zkušeností', 'Složitá legislativa',
             'Majitelé v tom nevidí smysl', 'Rozdílné cíle a hodnoty', 'Komunikační bariéry', 'Nedůvěra a obavy', 'Neshody v očekávání a výsledcích']
 
 # 9 reasons for impact
-reason_for_impact = ['Je to součastí našich hodnot', 'Zapojení zaměstnanců', 'Zlepšení brandu', 'Plnění ESG legislativy', 'Konkurenční výhoda',
-                     'Zvýšit loajalitu zákazníků', 'Pozitivní odkaz naší společnosti', 'Zvýšení atraktivnosti u ESG investorů', 'Chceme zlepšit své vlastní okolí']
+reason_for_impact_firm = ['Je to součastí našich hodnot', 'Zapojení zaměstnanců', 'Zlepšení brandu', 'Plnění ESG legislativy', 'Konkurenční výhoda',
+                          'Zvýšit loajalitu zákazníků', 'Pozitivní odkaz naší společnosti', 'Zvýšení atraktivnosti u ESG investorů', 'Chceme zlepšit své vlastní okolí']
 
+reason_for_impact_ngo = ['Firma musí být silně hodnotově ukotvená', 'Máme možnost zapojit jejich zaměstnance', 'Můžeme poskytnout silný PR a online dosah',
+                         'Pomůžeme v ESG oblastech']
 
 # Functions
 
 # Function to select random values and return a list
+
+
 def select_random_values(keys, sub_category_dict):
     selected_values = []
     for key in keys:
         if key in sub_category_dict:
             selected_values.extend(random.sample(sub_category_dict[key], min(
                 # Add up to 5 random values from each key
-                10, len(sub_category_dict[key]))))
+                5, len(sub_category_dict[key]))))
     return selected_values
 
 # Convert dictionary to dataframe to display in streamlit app
@@ -138,7 +166,7 @@ def dict_to_dataframe(data):
 def generate_org_data():
     org_data = {
         # pick one or two category
-        'category': random.sample(category, random.randint(1, 2)),
+        'category': random.sample(category, random.randint(1, 3)),
         # pick on randomly
         'field-of-influence': fields_of_influence[random.randint(1, len(fields_of_influence))-1],
         # pick on randomly
@@ -148,11 +176,11 @@ def generate_org_data():
         # pick one to five random forms
         'form-of-help': random.sample(forms_of_help, random.randint(1, 5)),
         # pick one to five random expertises
-        'expertises': random.sample(expertises, random.randint(1, 5)),
+        'expertises': random.sample(expertises, random.randint(1, 10)),
         # pick one to three random barriers
         'barriers': random.sample(barriers, random.randint(1, 3)),
         # pick two to five random reasons for impact
-        'reason-for-impact': random.sample(reason_for_impact, random.randint(2, 5)),
+        'reason-for-impact': random.sample(reason_for_impact_ngo, random.randint(2, 4)),
     }
 
     # # pick one to ten random subcategory
@@ -180,11 +208,11 @@ def generate_firm_data():
         # pick one to five random forms
         'form-of-help': random.sample(forms_of_help, random.randint(1, 5)),
         # pick one to five random expertises
-        'expertises': random.sample(expertises, random.randint(1, 5)),
+        'expertises': random.sample(expertises, random.randint(1, 10)),
         # pick one to three random barriers
         'barriers': random.sample(barriers, random.randint(1, 3)),
         # pick two to five random reasons for impact
-        'reason-for-impact': random.sample(reason_for_impact, random.randint(2, 5)),
+        'reason-for-impact': random.sample(reason_for_impact_firm, random.randint(2, 5)),
     }
 
     firm_data['sub-category'] = select_random_values(

@@ -1,45 +1,46 @@
 {
     "category": [
-        "Lidé",
+        "Společnost",
         "Zvířata"
     ],
-    "field-of-influence": "Svět",
-    "collab-intensity": "Jednorázová pomoc",
+    "field-of-influence": "ČR",
+    "collab-intensity": "Aktivní spolupráce",
     "employee-involvement": "Zapojení Zaměstnanců",
     "form-of-help": [
         "Společný projekt",
         "Dobrovolnictví"
     ],
     "expertises": [
-        "Právo",
-        "Marketing",
-        "HR"
+        "Sociální péče",
+        "AI nástroje",
+        "Fundraising a obchod",
+        "Sociální sítě & influenceři",
+        "Vedení týmu",
+        "Grafika a design",
+        "Manuální práce",
+        "Péče o zvířata",
+        "Správa e-shopu"
     ],
     "barriers": [
-        "Rozdílné cíle a hodnoty"
+        "Nemáme čas/Není to priorita"
     ],
     "reason-for-impact": [
+        "Pozitivní odkaz naší společnosti",
+        "Je to součastí našich hodnot",
         "Plnění ESG legislativy",
         "Zvýšit loajalitu zákazníků",
         "Chceme zlepšit své vlastní okolí"
     ],
     "sub-category": [
-        "Humanitární pomoc",
-        "Lidé bez domova",
-        "Děti, mládež a rodiny",
-        "Hospicová a paliativní péče",
-        "Legislativní a právní pomoc",
-        "Lidé s postižením",
-        "Lidská práva",
-        "Senioři",
-        "Zdraví",
-        "Výcvik zvířat a speciální služby",
-        "Útulky",
-        "Práva zvířat a dobré životní podmínky",
-        "Ochrana zvířat",
-        "Zoologické zahrady a akvária",
+        "Inovace a spolupráce",
+        "Mír a spravedlnost",
+        "Vzdělávání, věda a výzkum",
+        "Osvěta a poskytování informací",
+        "Kultura, umění a historie / Sport a volný čas",
         "Boj s lovem divoké zvířaty",
-        "Ohrožené druhy",
-        "Rezervace pro ryby, divokou zvěř a ptáky"
+        "Výcvik zvířat a speciální služby",
+        "Rezervace pro ryby, divokou zvěř a ptáky",
+        "Ochrana zvířat",
+        "Zoologické zahrady a akvária"
     ]
 }

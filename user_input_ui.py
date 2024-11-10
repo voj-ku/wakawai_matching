@@ -98,12 +98,39 @@ collab_intensities = ['Aktivní spolupráce', 'Jednorázová pomoc']
 employee_involvement = ['Zapojení Zaměstnanců', 'Bez zapojení zaměstanců']
 forms_of_help = ['Finance', 'Hmotná pomoc', 'Dobrovolnictví',
                  'Expertní dobrovolnictví', 'Společný projekt']
-expertises = ['Marketing', 'IT', 'HR', 'Právo', 'Sales',
-              'Projektový Management', 'Výzkum', 'Management', 'Podnikání', 'Účetnictví', 'Jiné']
+expertises = ['Marketingová a PR strategie',
+              'Copywriting',
+              'Grafika a design',
+              'Sociální sítě & influenceři',
+              'Fotografické služby',
+              'Tvorba videí',
+              'IT a tvorba webů',
+              'Správa e-shopu',
+              'Kyberbezpečnost',
+              'AI nástroje',
+              'Datová analýza',
+              'Eventy',
+              'Překladatelství',
+              'Právní služby',
+              'Fundraising a obchod',
+              'Projektový management',
+              'Vedení týmu',
+              'Finanční plánování',
+              'Účetnicví a daně',
+              'Logistika',
+              'Krizové řízení',
+              'Psychologie',
+              'Zdravotnictví',
+              'Sociální péče',
+              'Péče o zvířata',
+              'Stavební práce',
+              'Manuální práce']
 barriers = ['Žádná', 'Nemáme čas/Není to priorita', 'Omezené zdroje', 'Nedostatek znalostí a zkušeností', 'Složitá legislativa',
             'Majitelé v tom nevidí smysl', 'Rozdílné cíle a hodnoty', 'Komunikační bariéry', 'Nedůvěra a obavy', 'Neshody v očekávání a výsledcích']
-reason_for_impact = ['Je to součastí našich hodnot', 'Zapojení zaměstnanců', 'Zlepšení brandu', 'Plnění ESG legislativy', 'Konkurenční výhoda',
-                     'Zvýšit loajalitu zákazníků', 'Pozitivní odkaz naší společnosti', 'Zvýšení atraktivnosti u ESG investorů', 'Chceme zlepšit své vlastní okolí']
+reason_for_impact_firm = ['Je to součastí našich hodnot', 'Zapojení zaměstnanců', 'Zlepšení brandu', 'Plnění ESG legislativy', 'Konkurenční výhoda',
+                          'Zvýšit loajalitu zákazníků', 'Pozitivní odkaz naší společnosti', 'Zvýšení atraktivnosti u ESG investorů', 'Chceme zlepšit své vlastní okolí']
+reason_for_impact_ngo = ['Firma musí být silně hodnotově ukotvená', 'Máme možnost zapojit jejich zaměstnance', 'Můžeme poskytnout silný PR a online dosah',
+                         'Pomůžeme v ESG oblastech']
 
 create_own = st.toggle('Vyplnit vlastní NGO / Firmu')
 
@@ -129,12 +156,12 @@ if create_own:
         with st.form(key='ngo_form'):
             # Category
             ngo_category = st.multiselect(
-                'Kategorie (max 2)', category, help='Vyber až dvě kategorie.')
+                'Kategorie (max 3)', category, help='Vyber až dvě kategorie.')
 
             # Validate category selection
-            if len(ngo_category) < 1 or len(ngo_category) > 2:
+            if len(ngo_category) < 1 or len(ngo_category) > 3:
                 st.error(
-                    'Vyber 1 nebo 2 kategorie.')
+                    'Vyber 1-3 kategorie.')
 
             # Sub-category
             if ngo_category:
@@ -165,27 +192,27 @@ if create_own:
                 'Forma pomoci (vyber 2-5)', forms_of_help)
             if len(ngo_form_of_help) < 2 or len(ngo_form_of_help) > 5:
                 st.error(
-                    'Vyber 2 and 5 form pomoci.')
+                    'Vyber 2-5 form pomoci.')
 
             # Expertises
             ngo_expertises = st.multiselect(
-                'Expertýza (vyber 2-5)', expertises)
-            if len(ngo_expertises) < 2 or len(ngo_expertises) > 5:
+                'Expertýza (vyber 2-10)', expertises)
+            if len(ngo_expertises) < 2 or len(ngo_expertises) > 10:
                 st.error(
-                    'Vyber 2 and 5 oblastí ve které potřebuje NGO expertýzu.')
+                    'Vyber 2-10 oblastí ve které potřebuje NGO expertýzu.')
 
             # Barriers
             ngo_barriers = st.multiselect('Bariéry (vyber 2-5)', barriers)
             if len(ngo_barriers) < 2 or len(ngo_barriers) > 5:
                 st.error(
-                    'Vyber 2 and 5 bariér.')
+                    'Vyber 2-5 bariér.')
 
             # Reason for Impact
             ngo_reason_for_impact = st.multiselect(
-                'Pozitivní impakt (vyber 2-5)', reason_for_impact)
+                'Pozitivní impakt (vyber 2-5)', reason_for_impact_ngo)
             if len(ngo_reason_for_impact) < 2 or len(ngo_reason_for_impact) > 5:
                 st.error(
-                    'Vyber 2 and 5 důvodů proč chceš mít s NGO pozitivní impact.')
+                    'Vyber 2-5 důvodů proč chceš mít s NGO pozitivní impact.')
 
             # Submit Button
             ngo_submit_button = st.form_submit_button(label='Uložit NGO Data')
@@ -220,12 +247,12 @@ if create_own:
         with st.form(key='firm_form'):
             # Category
             firm_category = st.multiselect(
-                'Kategorie (max 2)', category, help='Vyber až dvě kategorie.')
+                'Kategorie (max 3)', category, help='Vyber až tři kategorie.')
 
             # Validate category selection
-            if len(firm_category) < 2 or len(firm_category) > 5:
+            if len(firm_category) < 1 or len(firm_category) > 3:
                 st.error(
-                    'Vyber 1 nebo 2 kategorie.')
+                    'Vyber 1-3 kategorie.')
 
             # Sub-category
             if firm_category:
@@ -255,28 +282,28 @@ if create_own:
                 'Forma pomoci (vyber 2-5)', forms_of_help)
             if len(firm_form_of_help) < 2 or len(firm_form_of_help) > 5:
                 st.error(
-                    'Vyber 2 and 5 form pomoci.')
+                    'Vyber 2-5 form pomoci.')
 
             # Expertises
             firm_expertises = st.multiselect(
-                'Expertýza (vyber 2-5)', expertises)
-            if len(firm_expertises) < 2 or len(firm_expertises) > 5:
+                'Expertýza (vyber 2-10)', expertises)
+            if len(firm_expertises) < 2 or len(firm_expertises) > 10:
                 st.error(
-                    'Vyber 2 and 5 oblastí ve které dokážeš nabídnout expertýzu.')
+                    'Vyber 2 až 10 oblastí ve které dokážeš nabídnout expertýzu.')
 
             # Barriers
             firm_barriers = st.multiselect(
                 'Bariéry (vyber 2-5)', barriers)
             if len(firm_barriers) < 2 or len(firm_barriers) > 5:
                 st.error(
-                    'Vyber 2 and 5 bariér.')
+                    'Vyber 2-5 bariér.')
 
             # Reason for Impact
             firm_reason_for_impact = st.multiselect(
-                'Pozitivní impakt (vyber 2-5)', reason_for_impact)
+                'Pozitivní impakt (vyber 2-5)', reason_for_impact_firm)
             if len(firm_reason_for_impact) < 2 or len(firm_reason_for_impact) > 5:
                 st.error(
-                    'Vyber 2 and 5 důvodů proč chceš mít s firmou pozitivní impact.')
+                    'Vyber 2-5 důvodů proč chceš mít s firmou pozitivní impact.')
 
             # Submit Button
             firm_submit_button = st.form_submit_button(
