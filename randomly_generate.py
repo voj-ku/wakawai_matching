@@ -198,7 +198,7 @@ def generate_org_data():
 def generate_firm_data():
     firm_data = {
         # pick one or two category
-        'category': random.sample(category, random.randint(1, 2)),
+        'category': random.sample(category, random.randint(1, 3)),
         # pick on randomly
         'field-of-influence': fields_of_influence[(random.randint(1, len(fields_of_influence)))-1],
         # pick on randomly
